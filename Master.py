@@ -19,13 +19,13 @@ while piece_count > 0:
     piece = raw_input('\n'"Choose your piece: ")
     move = raw_input("Choose where you want to go: ")
 
-    x = int(move[0]) - 1
-    y = int(move[2]) - 1
+    y = int(move[0]) - 1
+    x = int(move[2]) - 1
     tiles(x +1, y + 1)
     tile = tiles(x +1, y + 1)
     place_last_piece = False
 
-    if len(move) == 3 and 1 <= piece <=4:
+    if len(move) == 3:
         if last_piece == None:
             if 1 <= tile <= 16: #Check the user has entered valid coordinates
                 if table[x][y] == " ": #Check the box is empty
@@ -76,5 +76,3 @@ while piece_count > 0:
     if place_last_piece:
         last_piece = int(piece)
         last_tile = tile
-
-    print last_piece, last_tile, place_last_piece
