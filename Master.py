@@ -76,5 +76,3 @@ while piece_count > 0:
     if place_last_piece:
         last_piece = int(piece)
         last_tile = tile
-
-    print last_piece, last_tile, place_last_piece
