@@ -74,7 +74,7 @@ while piece_count > 0:
                     print "You can't do that as the space is not empty!"
                     print_table(table)
     else:
-        print "You can't do that! You have selected an incorrect piece or place on the board"
+        print "You can't do that! You have selected an incorrect piece or place on the board!"
 
     if place_last_piece:
         last_piece = int(piece)
