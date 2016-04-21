@@ -11,6 +11,8 @@ from Make import *
 
 print_table(table)
 last_piece = None
+turn = 0
+
 
 while piece_count > 0:
 
@@ -76,3 +78,7 @@ while piece_count > 0:
     if place_last_piece:
         last_piece = int(piece)
         last_tile = tile
+        turn += 1
+        print turn
+        piece_count(last_piece)
+
