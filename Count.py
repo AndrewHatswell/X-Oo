@@ -1,9 +1,9 @@
+cross_count = 2
+plus_count = 2
+adjacent_count = 2
+nonAdjacent_count = 2
 
-def piece_count(last_piece):
-    cross_count = 2
-    plus_count = 2
-    adjacent_count = 2
-    nonAdjacent_count = 2
+def piece_count(last_piece, cross_count, plus_count, adjacent_count, nonAdjacent_count):
 
     if last_piece == 1:
         cross_count -= 1
@@ -18,7 +18,8 @@ def piece_count(last_piece):
         nonAdjacent_count -= 1
         return nonAdjacent_count
     else:
-        return
+        print ("You have ", cross_count, "X's, ", plus_count, "+'s, ", adjacent_count, "o's, ", \
+               nonAdjacent_count, "O's")
 
     if cross_count == 0:
         print "You don't have any more X's"

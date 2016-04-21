@@ -17,7 +17,8 @@ turn = 0
 while piece_count > 0:
 
     print "Type in the number of the peice you want to select: '\n 1 = X \n 2 = + \n 3 = o \n 4 = O"
-    print "Type the coordinates (originating from the top left) of the box you want to put your piece into in the format \'x y\' (e.g. 4 2)"
+    print "Type the coordinates (originating from the top left of the box) where you want to put your piece " \
+          "into in the format \'x y\' (e.g. 4 2)"
     piece = raw_input('\n'"Choose your piece: ")
     move = raw_input("Choose where you want to go: ")
 
@@ -79,6 +80,7 @@ while piece_count > 0:
         last_piece = int(piece)
         last_tile = tile
         turn += 1
-        print turn
-        piece_count(last_piece)
+        piece_count(last_piece, cross_count, plus_count, adjacent_count, nonAdjacent_count)
+        print cross_count
+
 
