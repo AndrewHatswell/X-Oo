@@ -31,7 +31,7 @@ def piece_count(last_piece):
 
     total = plus_count + cross_count + adjacent_count + nonAdjacent_count
     if total == 0:
-        print "You have no more pieces"
+        print "You have no pieces left"
 
     return total
 
