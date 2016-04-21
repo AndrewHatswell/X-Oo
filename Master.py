@@ -11,6 +11,8 @@ from Make import *
 
 print_table(table)
 last_piece = None
+turn = 0
+
 
 while piece_count > 0:
 
@@ -51,14 +53,14 @@ while piece_count > 0:
                             print "You can not make that move as it is not in +'s limit"
                     elif last_piece == 3:
                         if adjacent_piece(last_tile, tile) == True:
-                            table[x][y] = make_pieces(piece) #Places the piece in chosen spot
+                            table[x][y] = make_pieces(piece)
                             print_table(table)
                             place_last_piece = True
                         else:
                             print "You can not make that move as it is not in o's limit"
                     elif last_piece == 4:
                         if nonadjacent_piece(last_tile, tile) == True:
-                            table[x][y] = make_pieces(piece)
+                            table[x][y] = make_pieces(piece) #Places the piece in chosen spot
                             print_table(table)
                             place_last_piece = True
                         else:
@@ -76,3 +78,7 @@ while piece_count > 0:
     if place_last_piece:
         last_piece = int(piece)
         last_tile = tile
+        turn += 1
+        print turn
+        piece_count(last_piece)
+
