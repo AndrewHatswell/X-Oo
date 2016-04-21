@@ -1,11 +1,3 @@
-from check import *
-
-#def cross_piece(tile, last_tile):
-#    tile = check_up_right(last_tile)
-#    tile = check_down_right(last_tile)
-#    tile = check_down_left(last_tile)
-#    tile = check_up_left(last_tile)
-
 def cross_piece(last_tile, tile):
     x = 1
     while x <= 3:
