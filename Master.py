@@ -80,7 +80,7 @@ while piece_count > 0:
         last_piece = int(piece)
         last_tile = tile
         turn += 1
-        piece_count(last_piece, cross_count, plus_count, adjacent_count, nonAdjacent_count)
-        print cross_count
+        piece_count(last_piece, pieces)
+        print pieces.cross_count
 
 
