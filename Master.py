@@ -46,7 +46,7 @@ while piece_count > 0:
                         else:
                             print "You can not make that move as it is not in X's limit"
                     elif last_piece == 2:
-                        if plus_piece(last_tile, tile) == True:
+                        if plus_piece(last_tile, tile) == True and pieces.plus_count > 0:
                             table[x][y] = make_pieces(piece) #Places the piece in chosen spot
                             print_table(table)
                             place_last_piece = True

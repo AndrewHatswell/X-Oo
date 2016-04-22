@@ -5,8 +5,7 @@ class pieces:
     nonAdjacent_count = 2
 
 
-def piece_count(last_piece, piece_count):
-
+def piece_count(last_piece):
     if last_piece == 1:
         pieces.cross_count -= 1
         return pieces.cross_count
@@ -20,9 +19,19 @@ def piece_count(last_piece, piece_count):
         pieces.nonAdjacent_count -= 1
         return pieces.nonAdjacent_count
     else:
-        print ("You have ", pieces.cross_count, "X's, ", pieces.plus_count, "+'s, ",\
-               pieces.adjacent_count, "o's, ", pieces.nonAdjacent_count, "O's")
+        return
 
 
 
-
+#if pieces.cross_count > 0:
+#else:
+#print "You have no X's left!"
+#if pieces.plus_count == 0:
+#print "You have no +'s left!"
+#else:
+#if pieces.adjacent_count == 0:
+#print "You have no o's left!"
+#else:
+#if pieces.nonAdjacent_count == 0:
+#print "You have no O's left!"
+#else:
