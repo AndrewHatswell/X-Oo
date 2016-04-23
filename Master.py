@@ -78,5 +78,3 @@ while piece_count > 0:
         LastTile = Tile(x,y)
         piece_count(last_piece, number_of_pieces)
         print number_of_pieces.cross_count
-
-
