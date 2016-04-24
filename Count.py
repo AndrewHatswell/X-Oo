@@ -21,17 +21,30 @@ def piece_count(last_piece, number_of_pieces):
     else:
         return
 
-
-
-#if number_of_pieces.cross_count > 0:
-#else:
-#print "You have no X's left!"
-#if number_of_pieces.plus_count == 0:
-#print "You have no +'s left!"
-#else:
-#if number_of_pieces.adjacent_count == 0:
-#print "You have no o's left!"
-#else:
-#if number_of_pieces.nonAdjacent_count == 0:
-#print "You have no O's left!"
-#else:
+def out_of_pieces(piece, number_of_pieces):
+    if int(piece) == 1:
+        if number_of_pieces.cross_count != 0:
+            return True
+        else:
+            print "You don't have any X's left"
+            return False
+    elif int(piece) == 2:
+        if number_of_pieces.plus_count != 0:
+            return True
+        else:
+            print "You don't have any +'s left"
+            return False
+    elif int(piece) == 3:
+        if number_of_pieces.plus_count != 0:
+            return True
+        else:
+            print "You don't have any o's left"
+            return False
+    elif int(piece) == 4:
+        if number_of_pieces.plus_count != 0:
+            return True
+        else:
+            print "You don't have any O's left"
+            return False
+    else:
+        print "That is not a piece"
