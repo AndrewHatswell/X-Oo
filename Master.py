@@ -6,7 +6,9 @@ from Plus import *
 from Adjacent import *
 from Nonadjacent import *
 from Make import *
+from colorama import *
 
+init()
 
 last_piece = None
 
