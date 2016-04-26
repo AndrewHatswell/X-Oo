@@ -1,9 +1,18 @@
-def cross_piece(last_tile, tile):
-    x = 1
-    while x <= 3:
-        if tile == (last_tile-(x*3)) or tile == (last_tile+(x*3)) or tile == (last_tile-(x*5)) or tile == (last_tile+(x*5)):
-            return True
-        elif x <= 3:
-            x += 1
-        else:
-            return False
+def cross_piece(CurrentTile, LastTile):
+    if abs(LastTile.x - CurrentTile.x) == abs(LastTile.y - CurrentTile.y):
+        return True
+    else:
+        return False
+
+#def cross_piece(CurrentTile, LastTile):
+#    z = 1
+#    while z <= 3:
+#        if (CurrentTile.x == LastTile.x-z) and (CurrentTile.y == LastTile.y-z)\
+#                or (CurrentTile.x == LastTile.x+z) and (CurrentTile.y == LastTile.y+z)\
+#                or (CurrentTile.x == LastTile.x-z) and (CurrentTile.y == LastTile.y+z)\
+#                or (CurrentTile.x == LastTile.x+z) and (CurrentTile.y == LastTile.y-z):
+#            return True
+#        elif z <= 3:
+#            z += 1
+#        else:
+#            return False

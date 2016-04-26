@@ -1,26 +1,62 @@
-cross_count = 2
-plus_count = 2
-adjacent_count = 2
-nonAdjacent_count = 2
+class number_of_pieces:
+    cross_count = 2
+    plus_count = 2
+    adjacent_count = 2
+    nonAdjacent_count = 2
 
+<<<<<<< HEAD
+=======
 class pieces_count:
     
 
 def piece_count(last_piece, cross_count, plus_count, adjacent_count, nonAdjacent_count):
+>>>>>>> master
 
+def piece_count(last_piece, number_of_pieces):
     if last_piece == 1:
-        cross_count -= 1
-        return cross_count
+        number_of_pieces.cross_count -= 1
+        return number_of_pieces.cross_count
     elif last_piece == 2:
-        plus_count -= 1
-        return plus_count
+        number_of_pieces.plus_count -= 1
+        return number_of_pieces.plus_count
     elif last_piece == 3:
-        adjacent_count -= 1
-        return adjacent_count
+        number_of_pieces.adjacent_count -= 1
+        return number_of_pieces.adjacent_count
     elif last_piece == 4:
-        nonAdjacent_count -= 1
-        return nonAdjacent_count
+        number_of_pieces.nonAdjacent_count -= 1
+        return number_of_pieces.nonAdjacent_count
     else:
+<<<<<<< HEAD
+        return
+
+def out_of_pieces(piece, number_of_pieces):
+    if int(piece) == 1:
+        if number_of_pieces.cross_count != 0:
+            return True
+        else:
+            print "You don't have any X's left"
+            return False
+    elif int(piece) == 2:
+        if number_of_pieces.plus_count != 0:
+            return True
+        else:
+            print "You don't have any +'s left"
+            return False
+    elif int(piece) == 3:
+        if number_of_pieces.plus_count != 0:
+            return True
+        else:
+            print "You don't have any o's left"
+            return False
+    elif int(piece) == 4:
+        if number_of_pieces.plus_count != 0:
+            return True
+        else:
+            print "You don't have any O's left"
+            return False
+    else:
+        print "That is not a piece"
+=======
         print ("You have ", cross_count, "X's, ", plus_count, "+'s, ", adjacent_count, "o's, ",\
                nonAdjacent_count, "O's")
 
@@ -44,3 +80,4 @@ def piece_count(last_piece, cross_count, plus_count, adjacent_count, nonAdjacent
 
 
 
+>>>>>>> master
