@@ -48,3 +48,4 @@ def out_of_pieces(piece, number_of_pieces):
             return False
     else:
         print "That is not a piece"
+
