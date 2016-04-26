@@ -4,7 +4,6 @@ class number_of_pieces:
     adjacent_count = 2
     nonAdjacent_count = 2
 
-
 def piece_count(last_piece, number_of_pieces):
     if last_piece == 1:
         number_of_pieces.cross_count -= 1
