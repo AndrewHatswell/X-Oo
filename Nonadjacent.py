@@ -5,3 +5,4 @@ def nonadjacent_piece(CurrentTile, LastTile):
         return False
     else:
         return True
+

@@ -11,3 +11,4 @@ def make_pieces(number):
         return "O"
     else:
         return
+

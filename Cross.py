@@ -16,3 +16,4 @@ def cross_piece(CurrentTile, LastTile):
 #            z += 1
 #        else:
 #            return False
+

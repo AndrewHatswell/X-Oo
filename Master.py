@@ -80,3 +80,4 @@ while piece_count > 0:
                 print "Invalid placement"
     except ValueError:
         print "Invalid piece"
+

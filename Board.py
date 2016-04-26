@@ -9,3 +9,4 @@ def print_table(whole_table):
             else:
                 row += "' ', "
         print(row)
+
