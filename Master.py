@@ -6,6 +6,7 @@ from Plus import *
 from Adjacent import *
 from Nonadjacent import *
 from Make import *
+from Player import *
 from colorama import *
 
 init()
@@ -24,12 +25,13 @@ while piece_count > 0:
             try:
                 move = raw_input("Choose where you want to go: ")
 
-                x = int(move[0]) - 1
-                y = int(move[2]) - 1
-                CurrentTile = Tile(x, y)
-                place_last_piece = False
+                if 0 <= int(move[0]) <= 3 and 0 <= int(move[2]) <= 3:
+                    x = int(move[0]) - 1
+                    y = int(move[2]) - 1
+                    CurrentTile = Tile(x, y)
+                    place_last_piece = False
 
-                if len(move) == 3:
+
                     if last_piece == None:
                         if 0 <= x <= 3 and 0 <= y <= 3: # Check the user has entered valid coordinates
                             if table[x][y] == " ": # Check the box is empty

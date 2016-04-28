@@ -1,3 +1,6 @@
+from Player import *
+from Master import *
+
 def make_pieces(number):
     if (number == "0"):
         return " "
@@ -11,3 +14,8 @@ def make_pieces(number):
         return "O"
     else:
         return
+
+class Piece_Type(Player):
+    def __init__(self, player, type):
+        self.player = Player
+        self.type = piece
