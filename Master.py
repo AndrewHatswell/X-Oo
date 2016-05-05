@@ -6,9 +6,7 @@ from Plus import *
 from Adjacent import *
 from Nonadjacent import *
 from Make import *
-from colorama import *
 
-init()
 
 last_piece = None
 player = 1
@@ -31,7 +29,7 @@ while total_piece_count_p1 or total_piece_count_p2 != 0:
             try:
                 move = raw_input("Choose where you want to go: ")
 
-                if 0 <= int(move[0]) <= 3 and 0 <= int(move[2]) <= 3:
+                if 1 <= int(move[0]) <= 4 and 1 <= int(move[2]) <= 4:
                     x = int(move[0]) - 1
                     y = int(move[2]) - 1
                     CurrentTile = Tile(x, y)
@@ -39,32 +37,32 @@ while total_piece_count_p1 or total_piece_count_p2 != 0:
                     if last_piece == None:
                         if 0 <= x <= 3 and 0 <= y <= 3: # Check the user has entered valid coordinates
                             if table[x][y] == " ": # Check the box is empty
-                                table[x][y] = make_pieces(piece) # Places the piece in chosen spot
+                                table[x][y] = make_pieces(piece, player) # Places the piece in chosen spot
                                 place_last_piece = True
                     else:
                         if 0 <= x <= 3 and 0 <= y <= 3: # Check the user has entered valid coordinates
                             if table[x][y] == " ": # Check the box is empty
                                 if last_piece == 1: # Check the last piece is an X
                                     if cross_piece(CurrentTile, LastTile) == True: # Check current piece abides by last piece rules
-                                        table[x][y] = make_pieces(piece) # Places the piece in chosen spot
+                                        table[x][y] = make_pieces(piece, player) # Places the piece in chosen spot
                                         place_last_piece = True
                                     else:
                                         print "You can not make that move as it is not in X's limit"
                                 elif last_piece == 2:
                                     if plus_piece(CurrentTile, LastTile) == True:
-                                        table[x][y] = make_pieces(piece)
+                                        table[x][y] = make_pieces(piece, player)
                                         place_last_piece = True
                                     else:
                                         print "You can not make that move as it is not in +'s limit"
                                 elif last_piece == 3:
                                     if adjacent_piece(CurrentTile, LastTile) == True:
-                                        table[x][y] = make_pieces(piece)
+                                        table[x][y] = make_pieces(piece, player)
                                         place_last_piece = True
                                     else:
                                         print "You can not make that move as it is not in o's limit"
                                 elif last_piece == 4:
                                     if nonadjacent_piece(CurrentTile, LastTile) == True:
-                                        table[x][y] = make_pieces(piece)
+                                        table[x][y] = make_pieces(piece, player)
                                         place_last_piece = True
                                     else:
                                         print "You can not make that move as it is not in O's limit"
