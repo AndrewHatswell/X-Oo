@@ -9,8 +9,8 @@ class number_of_pieces:
     adjacent_count_p2 = 2
     nonAdjacent_count_p2 = 2
 
-def piece_count(last_piece, number_of_pieces, player):
-    if player == 1:
+def piece_count(Tile, last_piece, number_of_pieces):
+    if Tile.player == 1:
         if last_piece == 1:
             number_of_pieces.cross_count_p1 -= 1
             return number_of_pieces.cross_count_p1
@@ -25,7 +25,7 @@ def piece_count(last_piece, number_of_pieces, player):
             return number_of_pieces.nonAdjacent_count_p1
         else:
             return
-    if player == 2:
+    if Tile.player == 2:
         if last_piece == 1:
             number_of_pieces.cross_count_p2 -= 1
             return number_of_pieces.cross_count_p2
@@ -42,27 +42,27 @@ def piece_count(last_piece, number_of_pieces, player):
             return
 
 
-def out_of_pieces(piece, number_of_pieces, player):
-    if player == 1:
-        if int(piece) == 1:
+def out_of_pieces(Tile, number_of_pieces):
+    if Tile.player == 1:
+        if int(Tile.piece_type) == 1:
             if number_of_pieces.cross_count_p1 != 0:
                 return True
             else:
                 print "You don't have any X's left"
                 return False
-        elif int(piece) == 2:
+        elif int(Tile.piece_type) == 2:
             if number_of_pieces.plus_count_p1 != 0:
                 return True
             else:
                 print "You don't have any +'s left"
                 return False
-        elif int(piece) == 3:
+        elif int(Tile.piece_type) == 3:
             if number_of_pieces.plus_count_p1 != 0:
                 return True
             else:
                 print "You don't have any o's left"
                 return False
-        elif int(piece) == 4:
+        elif int(Tile.piece_type) == 4:
             if number_of_pieces.plus_count_p1 != 0:
                 return True
             else:
@@ -70,26 +70,26 @@ def out_of_pieces(piece, number_of_pieces, player):
                 return False
         else:
             print "That is not a piece"
-    if player == 2:
-        if int(piece) == 1:
+    if Tile.player == 2:
+        if int(Tile.piece_type) == 1:
             if number_of_pieces.cross_count_p2 != 0:
                 return True
             else:
                 print "You don't have any X's left"
                 return False
-        elif int(piece) == 2:
+        elif int(Tile.piece_type) == 2:
             if number_of_pieces.plus_count_p2 != 0:
                 return True
             else:
                 print "You don't have any +'s left"
                 return False
-        elif int(piece) == 3:
+        elif int(Tile.piece_type) == 3:
             if number_of_pieces.plus_count_p2 != 0:
                 return True
             else:
                 print "You don't have any o's left"
                 return False
-        elif int(piece) == 4:
+        elif int(Tile.piece_type) == 4:
             if number_of_pieces.plus_count_p2 != 0:
                 return True
             else:

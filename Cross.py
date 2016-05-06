@@ -1,5 +1,5 @@
-def cross_piece(CurrentTile, LastTile):
-    if abs(LastTile.x - CurrentTile.x) == abs(LastTile.y - CurrentTile.y):
+def cross_piece(Tile, LastTile):
+    if abs(LastTile.x - Tile.x) == abs(LastTile.y - Tile.y):
         return True
     else:
         return False

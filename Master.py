@@ -9,7 +9,7 @@ from Make import *
 
 
 last_piece = None
-player = 1
+Tile.player = 1
 total_piece_count_p1 = number_of_pieces.cross_count_p1 + number_of_pieces.plus_count_p1 + \
                        number_of_pieces.adjacent_count_p1 + number_of_pieces.nonAdjacent_count_p1
 total_piece_count_p2 = number_of_pieces.cross_count_p2 + number_of_pieces.plus_count_p2 + \
@@ -24,45 +24,46 @@ while total_piece_count_p1 or total_piece_count_p2 != 0:
           "into in the format \'x y\' (e.g. 4 2)"
 
     try:
-        piece = raw_input('\n'"Player " + str(player) + ": Choose your piece: ")
-        if out_of_pieces(piece, number_of_pieces, player):
+        Tile.piece_type = raw_input('\n'"Player " + str(Tile.player) + ": Choose your piece: ")
+        if out_of_pieces(Tile, number_of_pieces):
             try:
                 move = raw_input("Choose where you want to go: ")
 
                 if 1 <= int(move[0]) <= 4 and 1 <= int(move[2]) <= 4:
-                    x = int(move[0]) - 1
-                    y = int(move[2]) - 1
-                    CurrentTile = Tile(x, y)
+                    Tile.x = int(move[0]) - 1
+                    Tile.y = int(move[2]) - 1
+                    CurrentTile = Tile.x, Tile.y
+
 
                     if last_piece == None:
-                        if 0 <= x <= 3 and 0 <= y <= 3: # Check the user has entered valid coordinates
-                            if table[x][y] == " ": # Check the box is empty
-                                table[x][y] = make_pieces(piece, player) # Places the piece in chosen spot
+                        if 0 <= Tile.x <= 3 and 0 <= Tile.y <= 3: # Check the user has entered valid coordinates
+                            if table[Tile.x][Tile.y] == " ": # Check the box is empty
+                                table[Tile.x][Tile.y] = make_pieces(Tile) # Places the piece in chosen spot
                                 place_last_piece = True
                     else:
-                        if 0 <= x <= 3 and 0 <= y <= 3: # Check the user has entered valid coordinates
-                            if table[x][y] == " ": # Check the box is empty
+                        if 0 <= Tile.x <= 3 and 0 <= Tile.y <= 3: # Check the user has entered valid coordinates
+                            if table[Tile.x][Tile.y] == " ": # Check the box is empty
                                 if last_piece == 1: # Check the last piece is an X
                                     if cross_piece(CurrentTile, LastTile) == True: # Check current piece abides by last piece rules
-                                        table[x][y] = make_pieces(piece, player) # Places the piece in chosen spot
+                                        table[Tile.x][Tile.y] = make_pieces(Tile) # Places the piece in chosen spot
                                         place_last_piece = True
                                     else:
                                         print "You can not make that move as it is not in X's limit"
                                 elif last_piece == 2:
                                     if plus_piece(CurrentTile, LastTile) == True:
-                                        table[x][y] = make_pieces(piece, player)
+                                        table[Tile.x][Tile.y] = make_pieces(Tile)
                                         place_last_piece = True
                                     else:
                                         print "You can not make that move as it is not in +'s limit"
                                 elif last_piece == 3:
                                     if adjacent_piece(CurrentTile, LastTile) == True:
-                                        table[x][y] = make_pieces(piece, player)
+                                        table[Tile.x][Tile.y] = make_pieces(Tile)
                                         place_last_piece = True
                                     else:
                                         print "You can not make that move as it is not in o's limit"
                                 elif last_piece == 4:
                                     if nonadjacent_piece(CurrentTile, LastTile) == True:
-                                        table[x][y] = make_pieces(piece, player)
+                                        table[Tile.x][Tile.y] = make_pieces(Tile)
                                         place_last_piece = True
                                     else:
                                         print "You can not make that move as it is not in O's limit"
@@ -76,13 +77,14 @@ while total_piece_count_p1 or total_piece_count_p2 != 0:
                     print "Invalid placement!"
 
                 if place_last_piece:
-                    last_piece = int(piece)
-                    LastTile = Tile(x,y)
-                    piece_count(last_piece, number_of_pieces, player)
-                    if player == 1:
-                        player = 2
+                    last_piece = int(Tile.piece_type)
+                    LastTile.x = Tile.x
+                    LastTile.y = Tile.y
+                    piece_count(Tile, last_piece, number_of_pieces)
+                    if Tile.player == 1:
+                        Tile.player = 2
                     else:
-                        player = 1
+                        Tile.player = 1
             except ValueError:
                 print "Invalid placement"
     except ValueError:
