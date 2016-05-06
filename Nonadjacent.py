@@ -1,7 +1,7 @@
-def nonadjacent_piece(Tile, LastTile):
-    if Tile.x == (LastTile.x - 1) and ((LastTile.y - 1) <= Tile.y <= (LastTile.y + 1)) or \
-            Tile.x == (LastTile.x + 1) and ((LastTile.y - 1) <= Tile.y <= (LastTile.y + 1)) or \
-            Tile.x == LastTile.x and ((LastTile.y - 1) <= Tile.y <= (LastTile.y + 1)):
+def nonadjacent_piece(tile, lastTile):
+    if tile.x == (lastTile.x - 1) and ((lastTile.y - 1) <= tile.y <= (lastTile.y + 1)) or \
+            tile.x == (lastTile.x + 1) and ((lastTile.y - 1) <= tile.y <= (lastTile.y + 1)) or \
+            tile.x == lastTile.x and ((lastTile.y - 1) <= tile.y <= (lastTile.y + 1)):
         return False
     else:
         return True

@@ -1,5 +1,5 @@
-def plus_piece(Tile, LastTile):
-    if (Tile.x == LastTile.x) or (Tile.y == LastTile.y):
+def plus_piece(tile, lastTile):
+    if (tile.x == lastTile.x) or (tile.y == lastTile.y):
         return True
     else:
         return False
