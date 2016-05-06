@@ -1,10 +1,35 @@
-def blockOut(tile, lastTile, player):
-    x = 0
-    y = 0
-    player = player
-    piece_type = 5
-    tile(x, y, piece_type,player)
-
-    # x &  y = 0
-    # check if tile is within bounds of lastTile False contiune
-        # True: check if tile is empty:
+def blockOut(lastTile, table, TileClass, cross_piece, plus_piece, adjacent_piece, nonadjacent_piece):
+    if lastTile == 1:
+        for x in [0, 1, 2, 3]:
+            for y in [0, 1, 2, 3]:
+                if table[x][y] == " ":
+                    newTile = TileClass(x, y)
+                    if cross_piece(newTile, lastTile):
+                        return True
+        return False
+    elif lastTile == 1:
+        for x in [0, 1, 2, 3]:
+            for y in [0, 1, 2, 3]:
+                if table[x][y] == " ":
+                    newTile = TileClass(x, y)
+                    if plus_piece(newTile, lastTile):
+                        return True
+        return False
+    elif lastTile == 1:
+        for x in [0, 1, 2, 3]:
+            for y in [0, 1, 2, 3]:
+                if table[x][y] == " ":
+                    newTile = TileClass(x, y)
+                    if adjacent_piece(newTile, lastTile):
+                        return True
+        return False
+    elif lastTile == 1:
+        for x in [0, 1, 2, 3]:
+            for y in [0, 1, 2, 3]:
+                if table[x][y] == " ":
+                    newTile = TileClass(x, y)
+                    if nonadjacent_piece(newTile, lastTile):
+                        return True
+        return False
+    else:
+        return False

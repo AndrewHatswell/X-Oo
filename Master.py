@@ -6,6 +6,7 @@ from Plus import *
 from Adjacent import *
 from Nonadjacent import *
 from Make import *
+from BlockOut import *
 
 
 last_piece = None
@@ -79,10 +80,14 @@ while total_piece_count_p1 or total_piece_count_p2 != 0:
             if place_last_piece:
                 lastTile = tile
                 piece_count(tile, lastTile, number_of_pieces)
-                if player == 1:
+                if blockOut(lastTile, table, TileClass, cross_piece, plus_piece, adjacent_piece, nonadjacent_piece)\
+                        and player == 1:
                     player = 2
-                else:
+                elif blockOut(lastTile, table, TileClass, cross_piece, plus_piece, adjacent_piece, nonadjacent_piece)\
+                        and player == 2:
                     player = 1
+                else:
+                    print "You blocked out the other player! Go again"
         except ValueError:
             print "Invalid placement"
     except ValueError:
