@@ -76,7 +76,6 @@ while total_piece_count_p1 or total_piece_count_p2 != 0:
             else:
                 print "Invalid placement!"
 
-
             if place_last_piece:
                 lastTile = tile
                 piece_count(tile, lastTile, number_of_pieces)
