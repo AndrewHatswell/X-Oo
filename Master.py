@@ -11,8 +11,10 @@ from BlockOut import *
 first_turn = True
 last_piece = None
 player = 1
+p1_count = 8
+p2_count = 8
 
-while number_of_pieces.p1 or number_of_pieces.p2 != 0:
+while p1_count != 0 or p2_count != 0:
 
     place_last_piece = False
     print_table(table)
@@ -76,6 +78,10 @@ while number_of_pieces.p1 or number_of_pieces.p2 != 0:
                 first_turn = False
                 lastTile = tile
                 piece_count(tile, number_of_pieces)
+                p1_count = number_of_pieces.cross_count_p1 + number_of_pieces.plus_count_p1 +\
+                        number_of_pieces.adjacent_count_p1 + number_of_pieces.nonAdjacent_count_p1
+                p2_count = number_of_pieces.cross_count_p2 + number_of_pieces.plus_count_p2 +\
+                        number_of_pieces.adjacent_count_p2 + number_of_pieces.nonAdjacent_count_p2
                 if blockOut(lastTile, table, TileClass, cross_piece, plus_piece, adjacent_piece, nonadjacent_piece)\
                         and player == 1:
                     player = 2
