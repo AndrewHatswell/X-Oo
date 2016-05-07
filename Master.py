@@ -8,15 +8,11 @@ from Nonadjacent import *
 from Make import *
 from BlockOut import *
 
-
+first_turn = True
 last_piece = None
 player = 1
-total_piece_count_p1 = number_of_pieces.cross_count_p1 + number_of_pieces.plus_count_p1 + \
-                       number_of_pieces.adjacent_count_p1 + number_of_pieces.nonAdjacent_count_p1
-total_piece_count_p2 = number_of_pieces.cross_count_p2 + number_of_pieces.plus_count_p2 + \
-                       number_of_pieces.adjacent_count_p2 + number_of_pieces.nonAdjacent_count_p2
 
-while total_piece_count_p1 or total_piece_count_p2 != 0:
+while number_of_pieces.p1 or number_of_pieces.p2 != 0:
 
     place_last_piece = False
     print_table(table)
@@ -36,7 +32,7 @@ while total_piece_count_p1 or total_piece_count_p2 != 0:
                 tile = TileClass(x, y, piece_type, player)
 
                 if out_of_pieces(tile, number_of_pieces):
-                    if last_piece == None:
+                    if first_turn:
                         if 0 <= tile.x <= 3 and 0 <= tile.y <= 3: # Check the user has entered valid coordinates
                             if table[tile.x][tile.y] == " ": # Check the box is empty
                                 table[tile.x][tile.y] = make_pieces(tile) # Places the piece in chosen spot
@@ -44,25 +40,25 @@ while total_piece_count_p1 or total_piece_count_p2 != 0:
                     else:
                         if 0 <= tile.x <= 3 and 0 <= tile.y <= 3: # Check the user has entered valid coordinates
                             if table[tile.x][tile.y] == " ": # Check the box is empty
-                                if last_piece == 1: # Check the last piece is an X
+                                if int(lastTile.piece_type) == 1: # Check the last piece is an X
                                     if cross_piece(tile, lastTile) == True: # Check current piece abides by last piece rules
                                         table[tile.x][tile.y] = make_pieces(tile) # Places the piece in chosen spot
                                         place_last_piece = True
                                     else:
                                         print "You can not make that move as it is not in X's limit"
-                                elif last_piece == 2:
+                                elif int(lastTile.piece_type) == 2:
                                     if plus_piece(tile, lastTile) == True:
                                         table[tile.x][tile.y] = make_pieces(tile)
                                         place_last_piece = True
                                     else:
                                         print "You can not make that move as it is not in +'s limit"
-                                elif last_piece == 3:
+                                elif int(lastTile.piece_type) == 3:
                                     if adjacent_piece(tile, lastTile) == True:
                                         table[tile.x][tile.y] = make_pieces(tile)
                                         place_last_piece = True
                                     else:
                                         print "You can not make that move as it is not in o's limit"
-                                elif last_piece == 4:
+                                elif int(lastTile.piece_type) == 4:
                                     if nonadjacent_piece(tile, lastTile) == True:
                                         table[tile.x][tile.y] = make_pieces(tile)
                                         place_last_piece = True
@@ -73,13 +69,13 @@ while total_piece_count_p1 or total_piece_count_p2 != 0:
                                     continue
                             else:
                                 print "You can't do that as the space is not empty!"
-                                print_table(table)
             else:
                 print "Invalid placement!"
 
             if place_last_piece:
+                first_turn = False
                 lastTile = tile
-                piece_count(tile, lastTile, number_of_pieces)
+                piece_count(tile, number_of_pieces)
                 if blockOut(lastTile, table, TileClass, cross_piece, plus_piece, adjacent_piece, nonadjacent_piece)\
                         and player == 1:
                     player = 2
