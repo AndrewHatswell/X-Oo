@@ -8,7 +8,6 @@ from Nonadjacent import *
 from Make import *
 from BlockOut import *
 
-first_turn = True
 player = 1
 p1_count = 8
 p2_count = 8
