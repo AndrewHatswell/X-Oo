@@ -7,6 +7,7 @@ from Adjacent import *
 from Nonadjacent import *
 from Make import *
 from BlockOut import *
+from Scoring import *
 
 player = 1
 p1_count = 8
@@ -93,3 +94,4 @@ while p1_count != 0 and p2_count != 0:
             print "Invalid placement"
     except ValueError:
         print "Invalid piece"
+scoring(table, tile)
