@@ -9,12 +9,12 @@ from Make import *
 from BlockOut import *
 
 first_turn = True
-last_piece = None
 player = 1
 p1_count = 8
 p2_count = 8
+lastTile = None
 
-while p1_count != 0 or p2_count != 0:
+while p1_count != 0 and p2_count != 0:
 
     place_last_piece = False
     print_table(table)
@@ -34,7 +34,7 @@ while p1_count != 0 or p2_count != 0:
                 tile = TileClass(x, y, piece_type, player)
 
                 if out_of_pieces(tile, number_of_pieces):
-                    if first_turn:
+                    if lastTile is None:
                         if 0 <= tile.x <= 3 and 0 <= tile.y <= 3: # Check the user has entered valid coordinates
                             if table[tile.x][tile.y] == " ": # Check the box is empty
                                 table[tile.x][tile.y] = make_pieces(tile) # Places the piece in chosen spot
@@ -75,7 +75,6 @@ while p1_count != 0 or p2_count != 0:
                 print "Invalid placement!"
 
             if place_last_piece:
-                first_turn = False
                 lastTile = tile
                 piece_count(tile, number_of_pieces)
                 p1_count = number_of_pieces.cross_count_p1 + number_of_pieces.plus_count_p1 +\
@@ -90,6 +89,7 @@ while p1_count != 0 or p2_count != 0:
                     player = 1
                 else:
                     print "You blocked out the other player! Go again"
+                    lastTile = None
         except ValueError:
             print "Invalid placement"
     except ValueError:
