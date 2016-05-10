@@ -37,32 +37,32 @@ while p1_count != 0 and p2_count != 0:
                     if lastTile is None:
                         if 0 <= tile.x <= 3 and 0 <= tile.y <= 3: # Check the user has entered valid coordinates
                             if table[tile.x][tile.y] == " ": # Check the box is empty
-                                table[tile.x][tile.y] = make_pieces(tile) # Places the piece in chosen spot
+                                table[tile.x][tile.y] = make_pieces(tile, table) # Places the piece in chosen spot
                                 place_last_piece = True
                     else:
                         if 0 <= tile.x <= 3 and 0 <= tile.y <= 3: # Check the user has entered valid coordinates
                             if table[tile.x][tile.y] == " ": # Check the box is empty
                                 if int(lastTile.piece_type) == 1: # Check the last piece is an X
                                     if cross_piece(tile, lastTile) == True: # Check current piece abides by last piece rules
-                                        table[tile.x][tile.y] = make_pieces(tile) # Places the piece in chosen spot
+                                        table[tile.x][tile.y] = make_pieces(tile, table) # Places the piece in chosen spot
                                         place_last_piece = True
                                     else:
                                         print "You can not make that move as it is not in X's limit"
                                 elif int(lastTile.piece_type) == 2:
                                     if plus_piece(tile, lastTile) == True:
-                                        table[tile.x][tile.y] = make_pieces(tile)
+                                        table[tile.x][tile.y] = make_pieces(tile, table)
                                         place_last_piece = True
                                     else:
                                         print "You can not make that move as it is not in +'s limit"
                                 elif int(lastTile.piece_type) == 3:
                                     if adjacent_piece(tile, lastTile) == True:
-                                        table[tile.x][tile.y] = make_pieces(tile)
+                                        table[tile.x][tile.y] = make_pieces(tile, table)
                                         place_last_piece = True
                                     else:
                                         print "You can not make that move as it is not in o's limit"
                                 elif int(lastTile.piece_type) == 4:
                                     if nonadjacent_piece(tile, lastTile) == True:
-                                        table[tile.x][tile.y] = make_pieces(tile)
+                                        table[tile.x][tile.y] = make_pieces(tile, table)
                                         place_last_piece = True
                                     else:
                                         print "You can not make that move as it is not in O's limit"
