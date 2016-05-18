@@ -6,10 +6,8 @@ class scores:
 def scoring(table, tile, scores):
     #vertical
     seq = []
-    for x in [0, 1, 2, 3]:
-        for y in [0, 1, 2, 3]:
-            tile = table[x][y]
+    for tile.x in [0, 1, 2, 3]:
+        for tile.y in [0, 1, 2, 3]:
             player = tile.player
             seq.append(player)
             print seq
-            seq = []
