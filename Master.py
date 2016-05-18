@@ -94,4 +94,4 @@ while p1_count != 0 and p2_count != 0:
             print "Invalid placement"
     except ValueError:
         print "Invalid piece"
-scoring(table, tile)
+scoring(table, tile, scores)
